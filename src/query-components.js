@@ -20,7 +20,8 @@ export function readFromQuery(existingQuery) {
     const existingSearchQuery = {
         state: searchParams.get('by_state'),
         city: searchParams.get('by_city'),
-        type: searchParams.get('by_type')
+        type: searchParams.get('by_type'),
+        page: parseInt(searchParams.get('page'))
     };
     return existingSearchQuery;
 }

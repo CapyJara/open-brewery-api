@@ -48,11 +48,12 @@ import { readFromQuery } from '../../src/query-components.js';
 
 test('reading query all', assert => {
     // arrange
-    const existingSearchQuery = '#by_state=washington&by_city=seattle&by_type=regional';
+    const existingSearchQuery = '#by_state=washington&by_city=seattle&by_type=regional&page=1';
     const expected = {
         state: 'washington',
         city: 'seattle',
-        type: 'regional'
+        type: 'regional',
+        page: 1
     };
     // act
     const results = readFromQuery(existingSearchQuery);
@@ -62,11 +63,12 @@ test('reading query all', assert => {
 
 test('reading query missing', assert => {
     // arrange
-    const existingSearchQuery = '#by_state=washington&by_city=&by_type=regional';
+    const existingSearchQuery = '#by_state=washington&by_city=&by_type=regional&page=2';
     const expected = {
         state: 'washington',
         city: '',
-        type: 'regional'
+        type: 'regional',
+        page: 2
     };
     // act
     const results = readFromQuery(existingSearchQuery);
