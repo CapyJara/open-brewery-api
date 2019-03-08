@@ -9,8 +9,6 @@ let currentPageNumber = 1;
 
 export default function updatePaging(searchOptions) {
     const existingQuery = window.location.hash;
-    console.log('update happened');
-    console.log('search options', searchOptions);
 
     currentPageNumber = searchOptions.page;
     currentPage.textContent = currentPageNumber;
