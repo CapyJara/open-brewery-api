@@ -1,17 +1,10 @@
 export default function replaceSpaces(place) {
-    const placeArray = place.split(' ');
-    const numWords = placeArray.length;
+    const placeArray = place.split(' ');    
+    let newPlace = placeArray[0];
+    
+    for(let i = 1; i < placeArray.length; i++) {
+        newPlace = (newPlace + '_' + placeArray[i]);
+    }
 
-    if(numWords === 1) {
-        const snakeCasePlace = `${placeArray[0]}`;
-        return snakeCasePlace;
-    }
-    if(numWords === 2) {
-        const snakeCasePlace = `${placeArray[0]}_${placeArray[1]}`;
-        return snakeCasePlace;
-    }
-    if(numWords === 3) {
-        const snakeCasePlace = `${placeArray[0]}_${placeArray[1]}_${placeArray[2]}`;
-        return snakeCasePlace;
-    } 
+    return newPlace;
 }
