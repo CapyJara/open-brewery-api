@@ -2,15 +2,7 @@ const test = QUnit.test;
 
 QUnit.module('querying');
 
-function writeToQuery(existingQuery, searchoptions) {
-    const searchParams = new URLSearchParams(existingQuery);
-
-    searchParams.set('by_state', searchoptions.state);
-    searchParams.set('by_city', searchoptions.city);
-    searchParams.set('by_type', searchoptions.type);
-
-    return searchParams.toString();
-}
+import { writeSearchToQuery } from '../../src/query-components.js';
 
 test('write search to empty query', assert => {
     // arrange
@@ -21,7 +13,7 @@ test('write search to empty query', assert => {
         type: 'brewpub'
     };
     // act
-    const results = writeToQuery(existingQuery, searchOptions);
+    const results = writeSearchToQuery(existingQuery, searchOptions);
     // assert
     assert.equal(results, 'by_state=colorado&by_city=denver&by_type=brewpub');
 });
@@ -35,16 +27,12 @@ test('replace existing query', assert => {
         type: 'regional'
     };
     // act
-    const results = writeToQuery(existingQuery, searchOptions);
+    const results = writeSearchToQuery(existingQuery, searchOptions);
     // assert
     assert.equal(results, 'by_state=&by_city=seattle&by_type=regional');
 });
 
-function writePageToQuery(existingQuery, page) {
-    const searchParams = new URLSearchParams(existingQuery);
-    searchParams.set('page', page);
-    return searchParams;
-}
+import { writePageToQuery } from '../../src/query-components.js';
 
 test('write page to query', assert => {
     // arrange
@@ -56,15 +44,7 @@ test('write page to query', assert => {
     assert.equal(results, 'by_state=&by_city=&by_type=&page=3');
 });
 
-function readFromQuery(existingQuery) {
-    const searchParams = new URLSearchParams(existingQuery);
-    const existingSearchQuery = {
-        state: searchParams.get('by_state'),
-        city: searchParams.get('by_city'),
-        type: searchParams.get('by_type')
-    };
-    return existingSearchQuery;
-}
+import { readFromQuery } from '../../src/query-components.js';
 
 test('reading query all', assert => {
     // arrange
