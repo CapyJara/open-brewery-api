@@ -1,0 +1,70 @@
+* {
+    margin: 0;
+    padding: 0;
+}
+
+body {
+    background-color: #C19875;
+    color: #414535;
+}
+
+header {
+    display: flex;
+    justify-content: center;
+
+    font-size: 22px;
+}
+
+main {
+    max-width: 100%;
+    min-width: 1200px;
+    height: 600px;
+
+    display: grid;
+    grid-template-rows: 50px;
+}
+
+#search-container {
+    background-color: #96BBBB;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+}
+
+#search-container option, input, label, select {
+    font-size: 16px;
+}
+
+#search-container input {
+    width: 225px;
+    text-align: center;
+}
+
+
+#search-bar {
+    width: 900px;
+    display: flex;
+    justify-content: space-between;
+}
+
+#brewery-container {
+    background-color: #F2E3BC;
+    width: 1fr;
+    display: flex;
+    justify-content: center;
+    align-items: center;
+    flex-wrap: wrap;
+}
+
+#brewery {
+    height: 200px;
+    width: 200px;
+    display: flex;
+    flex-direction: column;
+    align-items: center;
+    justify-content: space-around;
+    text-align: center;
+
+    background-color: #C19875;
+    margin: 5px;
+}
