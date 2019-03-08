@@ -26,18 +26,36 @@ test('write search to empty query', assert => {
     assert.equal(results, 'by_state=colorado&by_city=denver&by_type=brewpub');
 });
 
+test('replace existing query', assert => {
+    // arrange
+    const existingQuery = 'by_state=&by_city=portland&by_type=micro';
+    const searchOptions = {
+        state: '',
+        city: 'seattle',
+        type: 'regional'
+    };
+    // act
+    const results = writeToQuery(existingQuery, searchOptions);
+    // assert
+    assert.equal(results, 'by_state=&by_city=seattle&by_type=regional');
+});
 
-// writesearchtoquery taking existingquery and searchoption
-    //new search params
-        //set
-            //type
-            //state
-            //city
-    //return seach params
-
-
+function writePageToQuery(existingQuery, page) {
+    const searchParams = new URLSearchParams(existingQuery);
+    searchParams.set('page', page);
+    return searchParams;
+}
 
 //writepagetoquery
+test('write page to query', assert => {
+    // arrange
+    const page = 3;
+    const existingQuery = 'by_state=&by_city=&by_type=';
+    // act
+    const results = writePageToQuery(existingQuery, page);
+    // assert
+    assert.equal(results, 'by_state=&by_city=&by_type=&page=3');
+});
 
 //readfromquery
     // makes object
