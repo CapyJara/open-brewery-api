@@ -46,7 +46,6 @@ function writePageToQuery(existingQuery, page) {
     return searchParams;
 }
 
-//writepagetoquery
 test('write page to query', assert => {
     // arrange
     const page = 3;
@@ -57,5 +56,40 @@ test('write page to query', assert => {
     assert.equal(results, 'by_state=&by_city=&by_type=&page=3');
 });
 
-//readfromquery
-    // makes object
+function readFromQuery(existingQuery) {
+    const searchParams = new URLSearchParams(existingQuery);
+    const existingSearchQuery = {
+        state: searchParams.get('by_state'),
+        city: searchParams.get('by_city'),
+        type: searchParams.get('by_type')
+    };
+    return existingSearchQuery;
+}
+
+test('reading query all', assert => {
+    // arrange
+    const existingSearchQuery = 'by_state=washington&by_city=seattle&by_type=regional';
+    const expected = {
+        state: 'washington',
+        city: 'seattle',
+        type: 'regional'
+    };
+    // act
+    const results = readFromQuery(existingSearchQuery);
+    // assert
+    assert.deepEqual(results, expected);
+});
+
+test('reading query missing', assert => {
+    // arrange
+    const existingSearchQuery = 'by_state=washington&by_city=&by_type=regional';
+    const expected = {
+        state: 'washington',
+        city: '',
+        type: 'regional'
+    };
+    // act
+    const results = readFromQuery(existingSearchQuery);
+    // assert
+    assert.deepEqual(results, expected);
+});
