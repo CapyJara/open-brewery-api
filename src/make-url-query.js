@@ -7,7 +7,7 @@ export default function makeUrlQuery(queryOptions) {
 
     const apiSearchUrl = new URL(baseUrl);
     apiSearchUrl.searchParams.set('by_state', queryOptions.state);
-    apiSearchUrl.searchParams.set('cite', queryOptions.city);
+    apiSearchUrl.searchParams.set('by_cite', queryOptions.city);
     apiSearchUrl.searchParams.set('by_type', queryOptions.type);
 
     return apiSearchUrl;
