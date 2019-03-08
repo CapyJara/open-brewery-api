@@ -15,7 +15,7 @@ test('write search to empty query', assert => {
     // act
     const results = writeSearchToQuery(existingQuery, searchOptions);
     // assert
-    assert.equal(results, 'by_state=colorado&by_city=denver&by_type=brewpub');
+    assert.equal(results, 'by_state=colorado&by_city=denver&by_type=brewpub&page=1');
 });
 
 test('replace existing query', assert => {
@@ -29,7 +29,7 @@ test('replace existing query', assert => {
     // act
     const results = writeSearchToQuery(existingQuery, searchOptions);
     // assert
-    assert.equal(results, 'by_state=&by_city=seattle&by_type=regional');
+    assert.equal(results, 'by_state=&by_city=seattle&by_type=regional&page=1');
 });
 
 import { writePageToQuery } from '../../src/query-components.js';
@@ -48,7 +48,7 @@ import { readFromQuery } from '../../src/query-components.js';
 
 test('reading query all', assert => {
     // arrange
-    const existingSearchQuery = 'by_state=washington&by_city=seattle&by_type=regional';
+    const existingSearchQuery = '#by_state=washington&by_city=seattle&by_type=regional';
     const expected = {
         state: 'washington',
         city: 'seattle',
@@ -62,7 +62,7 @@ test('reading query all', assert => {
 
 test('reading query missing', assert => {
     // arrange
-    const existingSearchQuery = 'by_state=washington&by_city=&by_type=regional';
+    const existingSearchQuery = '#by_state=washington&by_city=&by_type=regional';
     const expected = {
         state: 'washington',
         city: '',

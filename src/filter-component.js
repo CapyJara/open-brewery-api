@@ -1,5 +1,5 @@
-import { writeSearchToQuery } from "./query-components.js";
-import replaceSpaces from "./spaces.js";
+import { writeSearchToQuery } from './query-components.js';
+import replaceSpaces from './spaces.js';
 
 const searchFrom = document.getElementById('search-form');
 
@@ -13,8 +13,6 @@ searchFrom.addEventListener('submit', event => {
         city: replaceSpaces(formDaddy.get('city')),
         type: formDaddy.get('type')
     };
-
-    console.log(searchOptions);
 
     const existingQuery = window.location.hash.slice(1);
     const newQuery = writeSearchToQuery(existingQuery, searchOptions);
