@@ -1,6 +1,7 @@
 import './filter-component.js';
 import makeUrlQuery from './make-url-query.js';
 import { readFromQuery } from './query-components.js';
+import loadCharacters from './make-brew-canvas.js';
 
 window.addEventListener('hashchange', () => {
 
@@ -10,6 +11,6 @@ window.addEventListener('hashchange', () => {
     fetch(apiUrl)
         .then(response => response.json())
         .then(body => {
-            console.log(body);
+            loadCharacters(body);
         });
 });

@@ -1,4 +1,4 @@
-export default function makeBreweryCanvas(brewery) {
+export function makeBreweryCanvas(brewery) {
     const html = `
     <div id="brewery">
         <a href="${brewery.website_url}">
@@ -14,6 +14,20 @@ export default function makeBreweryCanvas(brewery) {
 
     const template = document.createElement('template');
     template.innerHTML = html;
-
     return template.content;
+}
+
+const breweryContainer = document.getElementById('brewery-container');
+
+export default function loadCharacters(body) {
+
+    while(breweryContainer.children.length > 0) {
+        breweryContainer.lastElementChild.remove();
+    }
+
+    body.forEach(brewery => {
+        const dom = makeBreweryCanvas(brewery);
+        breweryContainer.appendChild(dom);
+    });
+
 }
