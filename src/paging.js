@@ -1,7 +1,6 @@
-import { writePageToQuery } from "./query-components.js";
+import { writePageToQuery } from './query-components.js';
 
 const currentPage = document.getElementById('current-page');
-// const totalPages = document.getElementById('total-pages');
 const previousButton = document.getElementById('previous-button');
 const nextButton = document.getElementById('next-button');
 
@@ -12,8 +11,6 @@ export default function updatePaging(searchOptions) {
 
     currentPageNumber = searchOptions.page;
     currentPage.textContent = currentPageNumber;
-    // totalPages.textContent = searchOptions.totalPages;
-    // nextButton.disabled = searchOptions.page === searchOptions.totalPages;
     previousButton.disabled = searchOptions.page === 1;
 
     writePageToQuery(existingQuery, currentPageNumber);

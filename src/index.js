@@ -8,7 +8,6 @@ window.addEventListener('hashchange', () => {
     const searchOptions = readFromQuery(window.location.hash);
     const apiUrl = makeUrlQuery(searchOptions);
     
-
     fetch(apiUrl)
         .then(response => response.json())
         .then(body => {
