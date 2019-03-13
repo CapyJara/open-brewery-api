@@ -20,21 +20,24 @@ body {
 header {
     max-width: 100%;
     min-width: 1000px;
-    display: flex;
-    justify-content: center;
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
 
     font-size: 22px;
 }
 
-header #user {
-    width: 260px;
+#title {
+    grid-column-start: 2;
+    display: flex;
+    justify-content: center;
+}
+
+#user {
+    grid-column-start: 3;
     font-size: 16px;
     display: flex;
     justify-content: flex-end;
-    align-items: center;
-    position: absolute;
-    top: 10px;
-    right: 30px;  
+    align-items: center; 
 }
 
 header img {
@@ -48,8 +51,10 @@ header p {
 
 header button {
     margin-left: 5px;
+    margin-right: 20px;
     padding: 2px;
     font-size: 12px;
+
 }
 
 main {
@@ -100,8 +105,8 @@ main {
 }
 
 #brewery {
-    height: 180px;
-    width: 160px;
+    height: 210px;
+    width: 180px;
     display: flex;
     flex-direction: column;
     align-items: center;
@@ -114,4 +119,9 @@ main {
 
 #brewery h3 {
     justify-self: self-end
+}
+
+#brewery img {
+    position: relative;
+    right: 65px;
 }
