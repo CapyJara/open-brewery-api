@@ -17,6 +17,7 @@ test('user html', assert => {
     <div id="user">
         <img src="./assets//avatar-placeholder.png" alt="avatar" id="user-image">
         <p id="name">Jared Myhrberg</p>
+        <button>Logout</button>
     </div>
     `);
 });
