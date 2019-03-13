@@ -1,8 +1,8 @@
-import './filter-component.js';
-import makeUrlQuery from './make-url-query.js';
-import { readFromQuery } from './query-components.js';
-import loadCharacters from './make-brew-canvas.js';
-import updatePaging from './paging.js';
+import './api/filter-component.js';
+import makeUrlQuery from './api/make-url-query.js';
+import { readFromQuery } from './api/query-components.js';
+import loadCharacters from './api/make-brew-canvas.js';
+import updatePaging from './api/paging.js';
 
 window.addEventListener('hashchange', () => {
     const searchOptions = readFromQuery(window.location.hash);
