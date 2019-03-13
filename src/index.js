@@ -3,6 +3,9 @@ import makeUrlQuery from './api/make-url-query.js';
 import { readFromQuery } from './api/query-components.js';
 import loadCharacters from './api/make-brew-canvas.js';
 import updatePaging from './api/paging.js';
+import loadHeader from './make-user-template.js';
+
+loadHeader();
 
 window.addEventListener('hashchange', () => {
     const searchOptions = readFromQuery(window.location.hash);
