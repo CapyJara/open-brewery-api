@@ -2,7 +2,7 @@ const test = QUnit.test;
 
 QUnit.module('querying');
 
-import { writeSearchToQuery } from '../../src/query-components.js';
+import { writeSearchToQuery } from '../../src/api/query-components.js';
 
 test('write search to empty query', assert => {
     // arrange
@@ -32,7 +32,7 @@ test('replace existing query', assert => {
     assert.equal(results, 'by_state=&by_city=seattle&by_type=regional&page=1');
 });
 
-import { writePageToQuery } from '../../src/query-components.js';
+import { writePageToQuery } from '../../src/api/query-components.js';
 
 test('write page to query', assert => {
     // arrange
@@ -44,7 +44,7 @@ test('write page to query', assert => {
     assert.equal(results, 'by_state=&by_city=&by_type=&page=3');
 });
 
-import { readFromQuery } from '../../src/query-components.js';
+import { readFromQuery } from '../../src/api/query-components.js';
 
 test('reading query all', assert => {
     // arrange

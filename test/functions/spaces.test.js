@@ -2,7 +2,7 @@ const test = QUnit.test;
 
 QUnit.module('spaces to _');
 
-import replaceSpaces from '../../src/spaces.js';
+import replaceSpaces from '../../src/api/spaces.js';
 
 test('one words', assert => {
     // arrange

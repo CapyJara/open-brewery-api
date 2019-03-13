@@ -2,7 +2,7 @@ const test = QUnit.test;
 
 QUnit.module('html');
 
-import { makeBreweryCanvas } from '../../src/make-brew-canvas.js';
+import { makeBreweryCanvas } from '../../src/api/make-brew-canvas.js';
 
 test('brewery template', assert => {
     // arrange
