@@ -27,22 +27,29 @@ header {
 }
 
 header #user {
-    width: 200px;
+    width: 260px;
+    font-size: 16px;
     display: flex;
+    justify-content: flex-end;
     align-items: center;
     position: absolute;
     top: 10px;
-    right: 30px;    
+    right: 30px;  
 }
 
 header img {
     width: 30px;
     height: 30px;
-    margin-right: 15px;
+}
+
+header p {
+    margin: 5px;
 }
 
 header button {
+    margin-left: 5px;
     padding: 2px;
+    font-size: 12px;
 }
 
 main {
