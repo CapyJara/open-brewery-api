@@ -1,8 +1,8 @@
-import objectToArray from '../src/object-to-array.js';
-
 const test = QUnit.test;
 
 QUnit.module('to array');
+
+import objectToArray from '../../src/object-to-array.js';
 
 test('object to array of objects', assert => {
     // arrange
