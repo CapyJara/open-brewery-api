@@ -2,7 +2,7 @@ const test = QUnit.test;
 
 QUnit.module('user profile');
 
-import makeUserTemplate from '../../src/make-user-template.js';
+import { makeUserTemplate } from '../../src/make-user-template.js';
 
 test('user html', assert => {
     // arrange
@@ -12,7 +12,6 @@ test('user html', assert => {
     };
     // act
     const result = makeUserTemplate(user);
-    console.log(result);
     // assert
     assert.htmlEqual(result, /*html*/`
     <div id="user">
