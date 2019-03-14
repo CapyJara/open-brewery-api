@@ -39,10 +39,17 @@ export default function loadCharacters(body) {
                 const value = snapshot.val();
                 let isFavorite = false;
                 if(value) {
+                    addFavorite();
+                }
+                else {
+                    removeFavorite();
+                }
+
+                function addFavorite() {
                     isFavorite = true;
                     favorite.src = '../../assets/fav-selected.svg';
                 }
-                else {
+                function removeFavorite() {
                     isFavorite = false;
                     favorite.src = '../../assets/fav-unselected.svg';
                 }
@@ -50,8 +57,7 @@ export default function loadCharacters(body) {
                 favorite.addEventListener('click', () => {
                     if(isFavorite) {
                         userFavoriteBreweryRef.remove();
-                        isFavorite = false;
-                        favorite.src = '../../assets/fav-unselected.svg';
+                        removeFavorite();
                     }
                     else {
                         userFavoriteBreweryRef.set({
@@ -62,10 +68,11 @@ export default function loadCharacters(body) {
                             state: brewery.state
                         });
                         isFavorite = true;
-                        favorite.src = '../../assets/fav-selected.svg';
+                        addFavorite();
                     }
                 });
             });
         breweryContainer.appendChild(dom);
     });
 }
+
