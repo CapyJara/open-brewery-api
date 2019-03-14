@@ -22,7 +22,7 @@ export function makeBreweryCanvas(brewery) {
 
 const breweryContainer = document.getElementById('brewery-container');
 
-export default function loadCharacters(body) {
+export default function loadBreweries(body) {
     while(breweryContainer.children.length > 0) {
         breweryContainer.lastElementChild.remove();
     }

@@ -1,7 +1,7 @@
 import './api/filter-component.js';
 import makeUrlQuery from './api/make-url-query.js';
 import { readFromQuery } from './api/query-components.js';
-import loadCharacters from './api/make-brew-canvas.js';
+import loadBreweries from './api/make-brew-canvas.js';
 import updatePaging from './api/paging.js';
 import loadHeader from './make-user-template.js';
 
@@ -14,7 +14,7 @@ window.addEventListener('hashchange', () => {
     fetch(apiUrl)
         .then(response => response.json())
         .then(body => {
-            loadCharacters(body);
+            loadBreweries(body);
             updatePaging(searchOptions);
         });
 });

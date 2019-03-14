@@ -15,8 +15,8 @@ test('user html', assert => {
     // assert
     assert.htmlEqual(result, /*html*/`
     <div id="user">
-        <img src="./assets//avatar-placeholder.png" alt="avatar" id="user-image">
-        <p id="name">Jared Myhrberg</p>
+        <a href="favorites.html"><img src="./assets//avatar-placeholder.png" alt="avatar" id="user-image"></a>
+        <a href="favorites.html"><p id="name">Jared Myhrberg</p></a>
         <button>Logout</button>
     </div>
     `);

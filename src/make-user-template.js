@@ -3,8 +3,8 @@ import { auth } from './firebase/firebase.js';
 export function makeUserTemplate(user) {
     const html = `     
     <div id="user">
-        <img src="${user.photoURL}" alt="avatar" id="user-image">
-        <p id="name">${user.displayName}</p>
+        <a href="favorites.html"><img src="${user.photoURL}" alt="avatar" id="user-image"></a>
+        <a href="favorites.html"><p id="name">${user.displayName}</p></a>
         <button>Logout</button>
     </div>
     `;
