@@ -7,11 +7,12 @@ import makeUserTemplate from '../../src/make-user-template.js';
 test('user html', assert => {
     // arrange
     const user = {
-        name: 'Jared Myhrberg',
-        userImage: './assets//avatar-placeholder.png'
+        displayName: 'Jared Myhrberg',
+        photoURL: './assets//avatar-placeholder.png'
     };
     // act
     const result = makeUserTemplate(user);
+    console.log(result);
     // assert
     assert.htmlEqual(result, /*html*/`
     <div id="user">

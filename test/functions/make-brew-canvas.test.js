@@ -25,7 +25,7 @@ test('brewery template', assert => {
     // act
     const results = makeBreweryCanvas(brewery);
     // assert
-    assert.htmlEqual(results, `
+    assert.htmlEqual(results, /*html*/`
     <div id="brewery">
         <a href="http://www.avondalebrewing.com">
             <h2>Avondale Brewing Co</h2>
@@ -35,6 +35,7 @@ test('brewery template', assert => {
             <h3>Birmingham</h3>
             <h3>Alabama</h3>
         </div>
+        <img src="../../assets/fav-unselected.svg" id="favorite-icon">
     </div>
     `);
 });

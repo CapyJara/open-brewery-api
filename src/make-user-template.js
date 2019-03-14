@@ -29,7 +29,7 @@ export default function loadHeader() {
             headerContainer.appendChild(dom);
         }
         else {
-            window.location = './auth.html';
+            // window.location = './auth.html';
         }
 
     });
