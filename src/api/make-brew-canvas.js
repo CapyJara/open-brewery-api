@@ -29,12 +29,43 @@ export default function loadCharacters(body) {
 
     body.forEach(brewery => {
         const dom = makeBreweryCanvas(brewery);
+        const favorite = dom.querySelector('#favorite-icon');
 
+        const userId = auth.currentUser.uid;
+        const userFavoritesRef = favoritesByUserRef.child(userId);
+        const userFavoriteBreweryRef = userFavoritesRef.child(brewery.id);
+        userFavoriteBreweryRef.once('value')
+            .then(snapshot => {
+                const value = snapshot.val();
+                let isFavorite = false;
+                if(value) {
+                    isFavorite = true;
+                    favorite.src = '../../assets/fav-selected.svg';
+                }
+                else {
+                    isFavorite = false;
+                    favorite.src = '../../assets/fav-unselected.svg';
+                }
 
-
-
-
+                favorite.addEventListener('click', () => {
+                    if(isFavorite) {
+                        userFavoriteBreweryRef.remove();
+                        isFavorite = false;
+                        favorite.src = '../../assets/fav-unselected.svg';
+                    }
+                    else {
+                        userFavoriteBreweryRef.set({
+                            id: brewery.id,
+                            name: brewery.name,
+                            type: brewery.brewery_type,
+                            city: brewery.city,
+                            state: brewery.state
+                        });
+                        isFavorite = true;
+                        favorite.src = '../../assets/fav-selected.svg';
+                    }
+                });
+            });
         breweryContainer.appendChild(dom);
     });
-
 }
